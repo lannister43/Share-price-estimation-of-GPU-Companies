@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPU Share Price Estimation</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="predict.html">Predict</a></li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="form-container">
+        <h1 >GPU Company Share Price Estimation</h1>
+        <form action="/predict" method="post">
+            <label class="high-open-year" for="low">Low:</label><br>
+            <input type="text" id="low" name="low"><br>
+            <label class="high-open-year" for="high">High:</label><br>
+            <input type="text" id="high" name="high"><br>
+            <label for="volume">Volume:</label><br>
+            <input type="text" id="volume" name="volume"><br>
+            <label class="high-open-year" for="open">Open:</label><br>
+            <input type="text" id="open" name="open"><br>
+            <label class="company" for="company">Company:</label><br>
+            <select id="company" name="company">
+                <option value="0">AMD</option>
+                <option value="1">Asus</option>
+                <option value="2">Intel</option>
+                <option value="3">MSI</option>
+                <option value="4">Nvidia</option>
+            </select><br>
+            <label class="high-open-year" for="year">Year:</label><br>
+            <input type="text" id="year" name="year"><br>
+            <label for="month">Month:</label><br>
+            <input type="text" id="month" name="month"><br>
+            <label class="high-open-year" for="day">Day:</label><br>
+            <input type="text" id="day" name="day"><br>
+            <input class="button" type="submit" value="Submit">
+        </form>
+
+        {% if prediction %}
+    <div class="prediction-box">
+        <h2>{{ prediction }}</h2>
+    </div>
+    {% endif %}
+
+    </div>
+ 
+    
+    
+</body>
+</html>
